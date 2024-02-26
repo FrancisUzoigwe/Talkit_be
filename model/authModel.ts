@@ -1,7 +1,6 @@
 import { model, Document, Schema, Types } from "mongoose";
 
 interface iAuth {
-  name?: string;
   email?: string;
   address?: string;
   password?: string;
@@ -19,7 +18,6 @@ interface iAuth {
 interface iAuthData extends iAuth, Document {}
 const authModel = new Schema<iAuthData>(
   {
-    name: { type: String },
     email: { type: String },
     address: { type: String },
     password: { type: String },

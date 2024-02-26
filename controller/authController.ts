@@ -5,10 +5,10 @@ import { streamUpload } from "../config/streamifier";
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password, salt);
-    const user = await authModel.create({ name, email, password: hashed });
+    const user = await authModel.create({ email, password: hashed });
 
     return res.status(200).json({
       message: "User registered successfully",
@@ -166,7 +166,7 @@ export const viewOneAccount = async (req: Request, res: Response) => {
     const { userID } = req.params;
     const user = await authModel.findById(userID);
     return res.status(200).json({
-      message: `${user?.name}'s Account details `,
+      message: `Account details `,
       data: user,
     });
   } catch (error: any) {
