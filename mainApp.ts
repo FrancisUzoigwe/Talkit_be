@@ -2,6 +2,7 @@ import cors from "cors";
 import { Application, Request, Response, json } from "express";
 import morgan from "morgan";
 import chat from "./router/chatRouter";
+import auth from "./router/authRouter";
 export const mainApp = (app: Application) => {
   app.use(json());
   app.use(
@@ -21,4 +22,5 @@ export const mainApp = (app: Application) => {
     }
   });
   app.use("/chat", chat);
+  app.use("/", auth);
 };
