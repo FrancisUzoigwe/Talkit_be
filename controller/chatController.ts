@@ -7,6 +7,10 @@ export const createChat = async (req: Request, res: Response) => {
   });
   try {
     const result = await newChat.save();
+    return res.status(200).json({
+      message : "Chat successfully created",
+      data: result
+    })
   } catch (error: any) {
     return res.status(400).json({
       message: "Error occured ",
