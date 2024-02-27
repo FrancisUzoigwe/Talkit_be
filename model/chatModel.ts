@@ -15,3 +15,4 @@ const chatModel = new Schema<iChatData>(
 );
 
 export default model<iChatData>("chats", chatModel);
+
